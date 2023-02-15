@@ -1,0 +1,28 @@
+<div class="sub-container">
+  <div class="page-title">
+    <h2><%= @schedule.title %></h2>
+    <%= link_to "編集", [:edit, @schedule], class: "button btn-to-edit" %>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="show-table">
+      <tr>
+        <th>開始日</th>
+        <td><%= @schedule.start_date.strftime("%Y/%m/%d") %></td>
+      </tr>
+      <tr>
+        <th>終了日</th>
+        <td><%= @schedule.end_date.strftime("%Y/%m/%d") %></td>
+      </tr>
+      <tr>
+        <th>終日</th>
+        <td><%= @schedule.is_allday ? "○" : "" %></td>
+      </tr>
+      <tr>
+        <th>スケジュールメモ</th>
+        <td><%= @schedule.memo %></td>
+      </tr>
+    </table>
+    <%= link_to "スケジュール一覧に戻る", :schedules_index, class: "button btn-to-index" %>
+  </div>
+</div>

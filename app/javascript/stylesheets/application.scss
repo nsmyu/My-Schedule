@@ -1,0 +1,274 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+//共通のスタイル
+a {
+  text-decoration: none;
+} 
+h1, h2, p {
+  margin: 0;
+}
+body {
+  background-color: #FFF4E1;
+}
+header {
+  margin-bottom: 30px;
+  padding: 8px 0;
+  text-align: center;
+  background-color: #9DDCDC;
+  h1 {
+    font-family: 'Hannotate TC',sans-serif;
+    font-size: 38px;
+    color: white;
+  }
+}
+.container {
+  margin: 0 auto;
+  max-width: 960px;
+  font-family: YuGothic,'Yu Gothic',sans-serif;
+  font-size: 14px;
+  .sub-container {
+    margin: 0 auto;
+    width: 640px;
+  }
+}
+.page-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto 10px;
+  padding: 0 6px;
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+.form-wrapper, .table-wrapper {
+  padding: 24px;
+  background-color: white;
+  box-shadow: 0 1.5px 1px 0 rgba(0, 0, 0, 0.2);
+  input, textarea {
+    padding: 12px;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+  }
+}
+.alert {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  .close {
+    margin-left: 6px;
+    border: none;
+    background-color: transparent;
+  }
+}
+.button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+
+//スケジュール一覧ページのスタイル
+.btn-to-new {
+  color: white !important;
+  background-color: #E67A7A;
+  &:before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 2.5px;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z'/%3E%3C/svg%3E");
+  }    
+}
+.index-table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  table-layout: fixed;
+  box-shadow: 0 1.5px 1px 0 rgba(0, 0, 0, 0.2);
+}
+.index-thead {
+  font-size: 15px;
+  color: white;
+  background-color: #9DDCDC;
+  th {
+    padding: 5px 16px
+  }
+  th:nth-child(1) {
+    width: 47px;
+  }
+  th:nth-child(2) {
+    width: 322px;
+  }
+  th:nth-child(5), th:nth-last-child(-n+3) {
+    width: 62px;
+  }
+}
+.index-tbody {
+  background-color: white;
+  td {
+    padding: 16px;
+    border-top: 1px solid #9DDCDC;
+  }
+  a {
+    color: #E67A7A;
+  }
+}
+.index-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding: 24px;
+  background-color: white;
+  box-shadow: 0 1.5px 1px 0 rgba(0, 0, 0, 0.2);
+  p span {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+//削除確認モーダルのスタイル
+.modal-dialog {
+  top: 20%;
+  .modal-header, .modal-footer {
+    border: none;
+  }
+  .modal-body {
+    padding: 5px 16px;
+  }
+  .btn-secondary {
+    border: 1px solid #d3d3d3;
+    color: black !important;
+    background-color: white !important;
+  }
+  .btn-primary {
+    border: none;
+    color: white !important;
+    background-color: red !important;
+  }
+}
+
+//新規登録＆編集フォームのスタイル
+.form-label {
+  font-weight: bold;
+}
+.form-control {
+  font-size: 14px;
+}
+.custom-control-input {
+  position: relative;
+  top: 3px;
+  margin-right: 3px;
+  width: 16px;
+  height: 16px;
+}
+textarea {
+  height: 130px;
+}
+.mandatory-field::after {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: -4px;
+  margin-left: 3px;
+  width: 8px;
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' fill='%23ff0000' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z'/%3E%3C/svg%3E");
+}
+.field-alert {
+  font-size: 12px;
+  color: red;
+}
+.form-buttons {
+  display: flex;
+  .btn-cancel {
+    display: inline-block;
+    font-weight: 400;
+    color: black !important;
+    background-color: #dcdcdc;
+  }
+  .btn-save {
+    margin-left: 10px;
+    padding: 12px 20px;
+    border: none;
+    color: white;
+    background-color: #E67A7A;
+  }
+}
+
+//フォームのカレンダーのスタイル（日曜日：赤、土曜日：青）
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-weekdays .flatpickr-weekday:nth-child(7n + 1),
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-days .flatpickr-day:not(.flatpickr-disabled):not(.prevMonthDay):not(.nextMonthDay):nth-child(7n + 1) {
+  color: red;
+}
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-weekdays .flatpickr-weekday:nth-child(7),
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-days .flatpickr-day:not(.flatpickr-disabled):not(.prevMonthDay):not(.nextMonthDay):nth-child(7n) {
+  color: blue;
+}
+
+//詳細ページのスタイル
+.btn-to-edit {
+  border: 1px solid #E67A7A;
+  color: #E67A7A !important;
+  &:before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 2.5px;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23E67A7A%0A' viewBox='0 0 16 16'%3E%3Cpath d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/%3E%3Cpath fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/%3E%3C/svg%3E");
+  }
+}
+.show-table {
+  margin: 0 auto 40px;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  table-layout: fixed;
+  th {
+    padding: 16px;
+    width: 155px;
+    font-size: 15px;
+    border: 1px solid #9DDCDC;
+    color: white;
+    background-color: #9DDCDC;
+  }
+  td {
+    padding: 16px;
+    border: 1px solid #9DDCDC;
+    background-color: white;
+  }
+}
+.btn-to-index {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+  font-weight: 400;
+  color: black !important;
+  background-color: #dcdcdc;
+  &:before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 2.5px;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z'/%3E%3C/svg%3E");
+  }
+}
