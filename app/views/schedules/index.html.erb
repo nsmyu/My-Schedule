@@ -1,0 +1,64 @@
+<div class="page-title">
+  <h2>スケジュール一覧</h2>
+  <%= link_to "新規登録", :new_schedule, class: "button btn-to-new" %>
+</div>
+
+<table class="index-table">
+  <thead class="index-thead">
+    <th>ID</th>
+    <th>スケジュール</th>
+    <th>開始日</th>
+    <th>終了日</th>
+    <th>終日</th>
+    <th>更新日時</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+ 
+  <tbody class="index-tbody">
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.id %></td>
+        <td><%= schedule.title %></td>
+        <td><%= schedule.start_date.strftime("%Y/%m/%d") %></td>
+        <td><%= schedule.end_date.strftime("%Y/%m/%d") %></td>
+        <td><%= schedule.is_allday ? "○" : "" %></td>
+        <td><%= schedule.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+        <td><%= link_to "詳細", schedule %></td>
+        <td><%= link_to "編集", [:edit, schedule] %></td>
+        <td><a type="button" class="btn-delete" data-bs-toggle="modal" data-bs-target="#md1">削除</a></td>
+         <!-- 削除確認モーダルの内容 -->
+         <div class="modal" id="md1" tabindex="-1">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="modal-title">スケジュールを削除しますか？</h5>
+               </div>
+               <div class="modal-body">
+                 <p>「<%= schedule.title %>」を削除してよろしいですか？<br>この操作は取り消せません。</p>
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="button btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                 <%= link_to "削除", schedule, method: :delete, class: "button btn-primary" %>
+               </div>
+             </div>
+           </div>
+         </div>
+         <!-- 削除確認モーダルここまで -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<footer class="index-footer">
+  <p>スケジュール合計 <span><%= @count %></span> 件</p>
+  <p>本日の日付&emsp;<%= @today_date.strftime("%Y/%m/%d") %></p>
+</footer>
+
+<% if flash[:notice] %>
+  <p class="alert alert-primary">
+    <%= flash[:notice] %>
+    <button type="button" class="close" data-bs-dismiss="alert">&times;</button>
+  </p>
+<% end %>
